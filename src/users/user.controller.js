@@ -12,6 +12,7 @@ exports.getUsers = async (req, res, next) => {
     data: { userList },
   });
 };
+
 exports.validateFilmsUser = async (req, res, next) => {
   const validationRules = Joi.object({
     name: Joi.string().required(),
@@ -82,15 +83,12 @@ exports.upDateUsers = async (req, res, next) => {
 exports.deleteUsers = async (req, res, next) => {
   try {
     const userId = req.params.id;
-    console.log(!ObjectId.isValid(userId));
 
     if (!ObjectId.isValid(userId)) {
       return res.status(404).send({ message: 'Invalid id' });
     }
 
     await UserModel.findByIdAndRemove(userId);
-
-    console.log(user, 'user');
     res.status(200).json({
       status: 'success',
       data: { user: null },
