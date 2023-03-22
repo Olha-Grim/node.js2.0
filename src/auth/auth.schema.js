@@ -1,9 +1,12 @@
 const Joi = require('joi');
 
-const sightUpSchema = Joi.object({
+exports.sighUpSchema = Joi.object({
   name: Joi.string().required(),
+  email: Joi.string().email().required(),
+  password: Joi.string().required().min(8),
+});
+
+exports.sighInSchema = Joi.object({
   email: Joi.string().email().required(),
   password: Joi.string().required(),
 });
-
-module.exports = sightUpSchema;
