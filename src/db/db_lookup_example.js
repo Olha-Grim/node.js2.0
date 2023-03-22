@@ -40,7 +40,8 @@ const main = async () => {
       },
     },
   ]);
-  console.log(aggregate, 'aggregate');
+  //SHORT WAY
+  const filteredDB = await ViewerModel.find({}, { _id: 0, name: 1 });
 };
 
 main();
