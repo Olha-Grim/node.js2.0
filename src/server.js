@@ -1,9 +1,10 @@
 const express = require('express');
 const path = require('path');
 const cors = require('cors');
-const userRouter = require('./users/user.router');
+const userRouter = require('./users/users.router');
 const authRouter = require('./auth/auth.router');
 const mongoose = require('mongoose');
+const cookieParser = require('cookie-parser');
 require('dotenv').config({ path: path.join(__dirname, '../.env') });
 
 class CrudServer {
@@ -26,6 +27,7 @@ class CrudServer {
   initMiddleware() {
     this.server.use(express.json());
     this.server.use(cors({ origin: 'http://localhost:3000' }));
+    this.server.use(cookieParser());
     // this.app.use(morgan('combined'));
   }
   initRouters() {

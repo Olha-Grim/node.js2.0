@@ -13,6 +13,14 @@ exports.getUsers = async (req, res, next) => {
   });
 };
 
+exports.getCurrentUser = async (req, res, next) => {
+  return res.status(200).send({
+    id: req.user._id,
+    name: req.user.name,
+    email: req.user.email,
+  });
+};
+
 exports.validateFilmsUser = async (req, res, next) => {
   const validationRules = Joi.object({
     name: Joi.string().required(),

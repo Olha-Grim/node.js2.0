@@ -28,6 +28,8 @@ exports.signIn = async (req, res, next) => {
       expiresIn: process.env.JWT_EXPIRES_IN,
     });
 
+    req.cookie('token', token, { httpOnly: true });
+
     res.status(200).json({
       user: {
         id: user._id,
