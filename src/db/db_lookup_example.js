@@ -36,52 +36,11 @@ const main = async () => {
     {
       $project: {
         favoriteFilms: 1,
+        _id: 0,
       },
     },
   ]);
-
-  //   const takeData = aggregate.map(viewer => viewer.favoriteFilms)
-
-  //   .map(viewer => viewer.favoriteFilms)
-  //   ViewerModel.create(
-  //     {
-  //       _id: 1,
-  //       name: 'Ivan',
-  //       favoriteFilmIds: ['1', '3'],
-  //     },
-  //     {
-  //       _id: 2,
-  //       name: 'Taras',
-  //       favoriteFilmIds: ['1', '2'],
-  //     },
-  //     {
-  //       _id: 3,
-  //       name: 'Sergio',
-  //     },
-  //   );
-  //   FilmModel.create(
-  //     {
-  //       _id: 1,
-  //       name: 'Titanic',
-  //       genre: 'drama',
-  //     },
-  //     {
-  //       _id: 2,
-  //       name: 'Lord of rings',
-  //       genre: 'fantasy',
-  //     },
-  //     {
-  //       _id: 3,
-  //       name: 'Superman',
-  //       genre: 'fantasy',
-  //     },
-  //     {
-  //       _id: 4,
-  //       name: null,
-  //     },
-  //   );
-
-  //aggregate
+  console.log(aggregate, 'aggregate');
 };
 
 main();
