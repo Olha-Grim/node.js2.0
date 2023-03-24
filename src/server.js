@@ -5,6 +5,7 @@ const userRouter = require('./users/users.router');
 const authRouter = require('./auth/auth.router');
 const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
+const imageRouter = require('./images/images.router');
 require('dotenv').config({ path: path.join(__dirname, '../.env') });
 
 class CrudServer {
@@ -33,6 +34,7 @@ class CrudServer {
   initRouters() {
     this.server.use('/users', userRouter);
     this.server.use('/auth', authRouter);
+    this.server.use('/image', imageRouter);
   }
 
   initErrorHandling() {
